@@ -6,6 +6,13 @@ import org.springframework.util.Assert;
 
 import java.util.Collection;
 
+/**
+ * SecurityContextHolder.SecurityContext의 Authentication 객체
+ * UsernamePasswordAuthenticationToken과 거의 완전하게 동일함
+ * 굳이 따로 만드는 이유는 class 이름 때문에 혼동이 생길 수 있어서 별도로 만듦
+ * 이 class를 안만들고 UsernamePasswordAuthenticationToken을 사용해도
+ * 구동 상 문제는 없음
+ */
 public class MultipleProviderAuthentication extends AbstractAuthenticationToken {
     private final Object principal;
     private Object credentials;

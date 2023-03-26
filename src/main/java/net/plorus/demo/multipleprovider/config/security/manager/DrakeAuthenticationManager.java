@@ -23,6 +23,8 @@ public class DrakeAuthenticationManager implements AuthenticationManager {
     public Authentication authenticate(Authentication authentication) throws AuthenticationException {
         DrakeCredential drakeCredential = (DrakeCredential) authentication.getCredentials();
 
+        // drake의 API를 통해 사용자 인증이 이뤄진다는 것을 보여주기 위한 부분일 뿐,
+        // 실제 drakeClient.getAuthenticationInformation에는 별내용이 없습니다...
         DrakeInternalResAuthentication authenticationInfo = drakeClient.getAuthenticationInformation(drakeCredential);
 
         DrakePrincipal drakePrincipal = new DrakePrincipal(authenticationInfo.getName(), authenticationInfo.getUid());
